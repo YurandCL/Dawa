@@ -1,0 +1,25 @@
+body {
+  background-color: lightblue;
+}
+
+h1 {
+  color: white;
+  text-align: center;
+}
+
+p {
+  font-family: verdana;
+  font-size: 20px;
+}
+
+img{
+	width: 500px;
+	height: 500px;
+	align-content: center;
+}
+
+button{
+	position: absolute;
+	right: 100px;
+	top: 30px;
+}
