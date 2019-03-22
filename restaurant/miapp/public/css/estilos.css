@@ -18,8 +18,13 @@ img{
 	align-content: center;
 }
 
-button{
+#contacto{
 	position: absolute;
 	right: 100px;
-	top: 30px;
+	top: 100px;
+}
+#reserva{
+	position: absolute;
+	right: 100px;
+	top: 110px;
 }

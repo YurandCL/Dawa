@@ -7,8 +7,12 @@ router.get('/', function(req, res, next) {
   res.render('index', {title:'express'});
 });
 
-router.get('/contacto', function(req, res, next) {
+router.post('/contacto', function(req, res, next) {
   res.render('contacto', {title:'contacto'});
 });
 
-module.
+router.post('/reserva', function(req, res, next) {
+  res.render('reserva', {title:'reserva'});
+});
+
+module.exports = router;
