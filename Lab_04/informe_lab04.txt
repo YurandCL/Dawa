@@ -1,0 +1,4 @@
+Ingresamos a la consola situada en la ruta de "MongoDB\Data\bin" y ejecutamos el comando "mongod --dbpath c:\MongoDB\Data\db" para poder iniciar nuestra instancia de mongo a cual se accederá durante todo el lab, ver imagen (img1.png)
+
+Ahora en otra consola tambien cituada en la ruta "MongoDB\Data\bin" para poder ejecutar el comando "mongo" y poder ingresar datos a la bd, para lo cual haremos uso de la sentencia "db.producto.insert({nombre:'prueba', descripcion:'este es un producto de prueba', precio:'5'}); con esto ingresaremos un dato, ahora con la sentencia "db.producto.find()" veremos el dato insertado anteriormente, ver imagen (img2.png - img3.png).
+

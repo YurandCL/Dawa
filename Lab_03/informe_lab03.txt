@@ -1,0 +1,27 @@
+Intalaremos node.js
+
+Para crear nuestro proyecto usaremos el comando "npm init", ver imagen (imagenes_lab03\img1.png)
+
+instalaremos "express" para su posterior uso, ver imagen (imagenes_lab03\img2.png)
+
+Creamos el archivo "index.js" para darle una ruta y abrir el servidor en el puerto 3000, ver imagen (imagenes_lab03\img3.png)
+
+Ahora instalamos el generador de Express de manera global, para poder usarla en todos nuestros proyectos,  ver imagen (imagenes_lab03\img4.png)
+
+Crear un proyecto ahora será mas sencillo gracias a esto, para ello solo necesitamos usar el comando "express miapp" y listo, ver imagen (imagenes_lab03\img5.png)
+
+Despues de esto solo hace falta ingresar a la carpeta generada e instalar las dependencias con el comando "npm install", ver imagen (imagenes_lab03\img6.png)
+
+Ahora que ya esta todo configurado podemos acceder al nuevo proyecto  desde nuestro navegador, pero antes debemos iniciar el servidor, para ello haremos uso del siguiente comando (Para windows) "set DEBUG=miapp:* & npm start", ver imagen (imagenes_lab03\img7.png - imagenes_lab03\img8.png).
+
+Modificaremos nuestro archivo "index.js" que creamos al inicio y lo modificaremos para que nos quede de la siguiente manera, ver imagen (imagenes_lab03\img9.png).
+
+Crearemos una estructura de carpetas de tal forma que se vea como en la imagen, ver imagen (imagenes_lab03\img10.png).
+
+Ahora crearemos la funcion para que pueda acceder a nuestras carpetas recién creadas, ver imagen (imagenes_lab03\img11.png - imagenes_lab03\img12.png)
+
+Pasamos a darle un identificador a la ruta de la carpeta "public", con esto ya no será necesario dar a conocer el nombre de la carpeta raiz del archivo mostrado, ver imagen (imagenes_lab03\img13.png - imagenes_lab03\img14.png)
+
+Pasaremos a manejar los errores que se puedan sucitar en la pagina como una ruta no encontrada, para ello modificaremos la función que se encarga de ello, ver imagen (imagenes_lab03\img15.png)
+
+Tambien usaremos un middleware que atrapará algunos errores mas generales,  y nos mostrará el error generado en consola, ver imagen (imagenes_lab03\img16.png).
