@@ -1,5 +1,7 @@
 const express 	= require('express');
 const app		= express();
+var server 		= require('http').Server(app);
+var io 			= require('socket.io')(server);
 const bodyParser = require('body-parser');
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -40,3 +42,15 @@ mongoose.Promise = global.Promise;
 //Iniciamos el servidor
 app.listen(port);
 console.log('La magia sucede en el puerto ' + port);
+
+server.listen(port);
+console.log('la magia sucede en el puerto ' + port);
+
+io.on('connection', function(socket){
+	console.log('Conectado');
+	socket.on('message', message => {
+		//el evento broadcast nos permite enviarle a todos menos al emisor
+		console.log('recibo', message);
+		socket.broadcast.emit('message', message);
+	})
+});
