@@ -8,6 +8,7 @@ import Layout from './hoc/Layout/Layout';
 
 import Welcome from './views/Welcome';
 import Chat from './views/Chat/Chat';
+import Profile from './views/Profile/Profile.js';
 import NotFound from './views/NotFound';
 
 class App extends Component {
@@ -20,6 +21,7 @@ class App extends Component {
           <Route path='/login' component={Login}/>
           <Route path='/welcome' component={Welcome}/>
           <Route path='/chat' component={Chat}/>
+          <Route path='/profile' component={Profile}/>
           <Route 
             path='/logout'
             render={() => {

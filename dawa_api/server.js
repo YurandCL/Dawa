@@ -3,11 +3,13 @@ const app		= express();
 var server 		= require('http').Server(app);
 var io 			= require('socket.io')(server);
 const bodyParser = require('body-parser');
+const logger 	= require('morgan');
 
+app.use(logger(':method :remote-addr :url :response-time'));
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8080;
 
 app.use("/", function(req, res, next){
 	res.header('Acces-Control-Allow-Origin','*');
@@ -29,7 +31,9 @@ router.get('/', function(req, res){
 });
 
 const userRouter = require('./routes/user');
+const fileRouter = require('./routes/file');
 router.use('/user', userRouter);
+router.use('/file', fileRouter);
 
 //Registramos las rutas
 app.use('/api', router);
@@ -40,8 +44,8 @@ mongoose.connect('mongodb://localhost:27017/dawa_blog');
 mongoose.Promise = global.Promise;
 
 //Iniciamos el servidor
-app.listen(port);
-console.log('La magia sucede en el puerto ' + port);
+// app.listen(port);
+// console.log('La magia sucede en el puerto ' + port);
 
 server.listen(port);
 console.log('la magia sucede en el puerto ' + port);

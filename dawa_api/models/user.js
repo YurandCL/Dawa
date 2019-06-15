@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const bcrypt = require('bcrypt-nodejs');
 const Schema = mongoose.Schema;
 
-const SALT_WORK_FACTOR = 10;
+const SALT_WORK_FACTOR = 10
 const validateEmail = function(email){
 	const re = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 	return re.test(email);
@@ -39,7 +39,7 @@ const userSchema = new Schema({
 	},
 	password: {
 		type: String,
-		required: true
+		required: true,
 		min: 6,
 		max: 24
 	}
@@ -50,7 +50,7 @@ userSchema.pre('save', function(next){
 
 	if (!user.isModified('password')) return next();
 	//generamos la encriptacion
-	bcrypt.genSalt(SALT_WORK_FACTOR, function(err, hash){
+	bcrypt.genSalt(SALT_WORK_FACTOR, function(err, salt){
 		if (err) return next(err);
 		//procedemos a cifrar la contraseña
 		bcrypt.hash(user.password, salt, null, function(err, hash){
@@ -62,9 +62,9 @@ userSchema.pre('save', function(next){
 });
 
 userSchema.methods.comparePassword = function(candidatePassword){
-	return new Promise((resolve, reject) =>{
+	return new Promise((resolve, reject) => {
 		bcrypt.compare(candidatePassword, this.password, (err, isMatch) =>{
-			if (err) reject({error: true, message: 'Password required'});
+			if (err) reject({error: true, message: 'No lo des encripto'});
 			resolve(isMatch);
 		});
 	})

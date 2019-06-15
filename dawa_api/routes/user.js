@@ -7,7 +7,7 @@ router.post('/signup', userController.signup);
 router.post('/signin', userController.signin);
 router.post('/refresh', userController.refreshToken);
 
-router.use(userController.verifyToken);
+// router.use(userController.verifyToken);
 
 router.get('/', userController.find);
 router.get('/:id', userController.findOne);

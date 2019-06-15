@@ -1,15 +1,16 @@
 const jwt = require('jsonwebtoken');
 
 module.exports = {
-	generatToken: user => {
+	generateToken: user => {
 		const u = {
-			_id: user. _id,
+			_id: user._id,
 			name: user.name,
 			username: user.username,
 			email: user.email
 		};
-		return token = just.sign(u, process.env.JWT_SECRET,{
+		return token = jwt.sign(u, 'funciona',{
 			expiresIn: 60 * 60 * 24 //Expira en 24 horas
+			// process.env.JWT_SECRET
 		});
 	},
 	verifyToken: token => {
@@ -23,7 +24,7 @@ module.exports = {
 		});
 	},
 	getCleanUser: user => {
-		const{ password, agen createdAT, updateAt, _v, ...exposedData} = user;
+		const{ password, age, createdAT, updateAt, __v, ...exposedData} = user;
 		return exposedData;
 	}
 };
